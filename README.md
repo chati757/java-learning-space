@@ -75,3 +75,28 @@ basic java for nodejs and angularjs development
 
    *warning version of moule it's have prefix '^' before version of module
    *'^' is mean patch and bug fix last version only, not change major version
+
+## how to set environment (development version or production version)
+
+   *development version have debug-log and body-parser
+   *production version have compress response nad body-parser
+
+### window cmd
+    
+   *development version
+
+    set NODE_ENV=development
+
+   *production version
+
+    set NODE_ENV=production
+
+### linux/Mac
+
+    *development version
+
+    export NODE_ENV=development
+
+    *production version
+
+    export NODE_ENV=production

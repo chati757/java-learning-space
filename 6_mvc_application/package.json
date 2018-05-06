@@ -1,0 +1,16 @@
+{
+    "name": "Myproject",
+    "version": "1.0.0",
+    "dependencies": {
+        "body-parser": "1.18.2",
+        "compression": "1.7.2",
+        "ejs": "^2.6.1",
+        "express": "4.16.3",
+        "morgan": "1.9.0"
+    },
+    "dependenciesComments": {
+        "morgan": "HTTP request logger middleware for node.js.",
+        "compression": "Node.js compression middleware.",
+        "body-parser": "Node.js body parsing middleware."
+    }
+}
