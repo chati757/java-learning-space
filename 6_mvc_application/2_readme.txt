@@ -1,3 +1,5 @@
+this lab is basic mvc structure (all file nad folders in this lab is structure for mvc structure) and using ejs for templete engine
+and learn abount how to config env variable (development version and production version)
 structurefile of mvc
 app :
     controller : form 1_mvc_structure.png 
@@ -42,7 +44,6 @@ to set env
             export NODE_ENV=development
         production version
             export NODE_ENV=production
-
 
 config applicaiton env(<project>/config/express.js)(<project>/server.js)
     express.js     
