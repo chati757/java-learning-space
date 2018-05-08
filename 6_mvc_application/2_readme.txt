@@ -45,6 +45,12 @@ to set env
 
 
 config applicaiton env(<project>/config/express.js)(<project>/server.js)
-    
     express.js     
     server.js
+
+install ejs template engine
+    npm install ejs or add in package manager
+
+add config 2 line to express.js file
+    app.engine('html', require('ejs').renderFile);
+    app.set('view engine','html');
