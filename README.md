@@ -2,6 +2,10 @@
 basic java for nodejs and angularjs development
 
 ## installation
+### editor (recommend)
+
+    https://code.visualstudio.com/
+
 ### nodejs install (download LTS version)
    
     http://nodejs.org
@@ -73,7 +77,7 @@ basic java for nodejs and angularjs development
 
     npm install <npm_module_name> --save
 
-   *warning version of moule it's have prefix '^' before version of module
+   *warning version of module it's have prefix '^' before version of module
    *'^' is mean patch and bug fix last version only, not change major version
 
 ## how to set environment (development version or production version)

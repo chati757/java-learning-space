@@ -1,7 +1,7 @@
 /*
 type of nodejs module
     -core module (default module of nodejs)
-    -file module (Ex.1_say_export.js , 1_say_module.js)
+    -file module (Ex.1_say_export.js , 1_say_module.js) in this lab
     -folder module 
         Ex.-Project
                 |-main.js
@@ -14,7 +14,7 @@ type of nodejs module
                             "version" : "1.0.0",
                             "main" : "./say.js" <-- 2 
                         }
-                        *if not package.json it's find index.js (if exits)
+                        *if not find package.json next it's find index.js (if exits)
         *require folder module style
         var say = require('./modules/action');
     -third party module (npm)
