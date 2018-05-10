@@ -4,14 +4,6 @@ console.log(array1.join(','))
 console.log(array1.join('-'))
 console.log(array1.join('+'))
 console.log(array1)
-//--------------------concat------------------------------
-const array2 = [1,2,3]
-const array3 = [4,5,6]
-const con_array1 = array2.concat(array3)
-console.log(con_array1)
-const con_array2 = con_array1.concat([9])
-console.log(con_array2)
-console.log(array2) //not like a push command becase array2 it's not change to [1,2,3,4,5,6]
 //------------------pop and shift-------------------------
 const array4 = ['a','b','c']
 console.log(array4)
@@ -36,5 +28,6 @@ console.log(mutate) //['red','green','white','yellow','blue']
 //get element from array
 const slice_test=mutate.slice(1,2) //1 is start position and 2 is end positon
 console.log(slice_test) // create new array and push element selection from slice(1,2) postion
+console.log(mutate) 
 const slice_test2=mutate.slice() //<--like a copy array ['red','green','white','yellow','blue']
 console.log(slice_test2)

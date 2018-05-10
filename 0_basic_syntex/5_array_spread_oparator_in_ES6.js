@@ -5,6 +5,7 @@ const append2 = [1,2,3,...arr] //(resolve) use spread operator (non sub array)
 
 console.log(append)
 console.log(append2)
+console.log(arr)
 
 const origin_arr = [1,2,3]
 const copy_arr = origin_arr
