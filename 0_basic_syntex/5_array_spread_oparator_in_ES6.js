@@ -5,6 +5,7 @@ const append2 = [1,2,3,...arr] //(resolve) use spread operator (non sub array)
 
 console.log(append)
 console.log(append2)
+console.log("arr")
 console.log(arr)
 
 const origin_arr = [1,2,3]
@@ -13,7 +14,8 @@ copy_arr.push(4) //origin_arr have change already [1,2,3,4]
 console.log(copy_arr)
 const copy_arr2 = [...origin_arr]
 console.log(copy_arr2)
-console.log(origin_arr)//[1,2,3,4] const and not definde again but can be change Ex.add or decrease
+console.log("origin_arr")
+console.log(origin_arr)//[1,2,3,4] const and not defined again but can be change Ex.add or decrease
 
 //---------------------------------------------------------------
 //rest parameter

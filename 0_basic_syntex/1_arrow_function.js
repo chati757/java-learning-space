@@ -27,5 +27,7 @@ var person = {
     
 }
 
+console.log("problem")
 person.greet_problem()
+console.log("resolve")
 person.greet_resolve()
