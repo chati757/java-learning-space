@@ -21,9 +21,4 @@ console.log("splice and slice")
 const mutate = [{color:'red'},{color:'green'},{color:'0'},{color:'1'},{color:'blue'}]
 const splice_test = mutate.splice(2,2,{color:'white'},{color:'yellow'}) //delete element position start at positon 1 , 2 element
 console.log("splice_test",splice_test)
-//get element from array
-const slice_test=mutate.slice(1,2) //1 is start position and 2 is end positon
-console.log("slice_test:",slice_test) // create new array and push element selection from slice(1,2) postion
-const slice_test2=mutate.slice() //<--like a copy array ['red','green','white','yellow','blue']
-console.log("slice_test2:",slice_test2)
-console.log("after:",mutate)
+console.log("original mutate",mutate)

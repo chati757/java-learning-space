@@ -1,5 +1,10 @@
 //insert new array
-
+const array1 = [1,2,3]
+console.log(array1.join())
+console.log(array1.join(','))
+console.log(array1.join('-'))
+console.log(array1.join('+'))
+console.log(array1)
 //--------------------concat------------------------------
 const array2 = [1,2,3]
 const array3 = [4,5,6]

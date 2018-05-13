@@ -38,5 +38,5 @@ const sum = object_array
     .filter(isNotHealthy)
     .map(e => e.cal) //[1000,1400,1200]
     .reduce((ret,e) => ret + e,0)
-
+//total of cal(non Healthy)
 console.log(sum) //3300
