@@ -11,7 +11,7 @@ console.log(arrowGreet('testname','testmassage'))
 
 //---------------------------object function structure--------------------------------
 var person = {
-    name: 'Luna',
+    name: 'Luna',                      //callback function
     handleMessage:function(message,handler){
         handler(message)
     },
