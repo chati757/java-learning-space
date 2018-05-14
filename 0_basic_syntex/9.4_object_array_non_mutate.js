@@ -38,6 +38,7 @@ console.log("filter")
 console.log(arr2_filter) //[ { num: 2 }, { num: 3 }, { num: 2 }, { num: 3 } ]
 //--------------------------------------------------------
 //--------------------reduce------------------------------
+console.log("reduce")
 const object_array2 = [
     {id:1,name:'kaprao',cal:1000},
     {id:2,name:'radna',cal:1100},

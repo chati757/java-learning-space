@@ -42,7 +42,7 @@ r.greet()
 
 class Square extends Rectangle{
     constructor(width){
-        super(width,width)
+        super(width,width)//<--send parameter constructor to class Rectangle
     }
 }
 

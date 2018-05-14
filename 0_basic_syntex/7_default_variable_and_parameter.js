@@ -44,7 +44,8 @@ const [{prop:x8=3}={}] = [] //find destructure and not find destructure ,x8 not 
 console.log(x8)
 
 //------------------default function object-----------------------
-
+console.log("default function object")
+/*
 function create_user1(person){
     const name = person.name || 'nana'
     const age = person.age || 2
@@ -53,6 +54,7 @@ function create_user1(person){
 console.log(create_user1({age:10,name:'Lucy'}))
 console.log(create_user1()) //error
 console.log(create_user1({})) //no error
+*/
 
 function create_user2({age=2,name='Nana'}={}){
     return `${name} (age:${age})`

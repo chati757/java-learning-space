@@ -30,12 +30,15 @@ howManyArgs(3,8,6,7,5)
 //map array function
 const testmaparr = [-100,-200,-300]
 function testfunc(x){
-    console.log(x);
+    return x;
 }
+console.log("testfunc")
 console.log(testmaparr.map(testfunc)) //link a forEach
+console.log("Math.abs")
 console.log(testmaparr.map(Math.abs))
 
 //map array in rest parameter function
+console.log("map array in rest parameter function")
 function multiply(mutillier,...array){
     console.log(array)
     return array.map(e=>mutillier * e)
