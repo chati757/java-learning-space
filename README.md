@@ -6,6 +6,14 @@ basic java for nodejs and angularjs development
 
     https://code.visualstudio.com/
 
+### editor extensions
+
+    Angular 6 Snippets
+    Live Server
+    vscode-icons
+    XML tools
+    Launcher
+
 ### nodejs install (download LTS version)
    
     http://nodejs.org
