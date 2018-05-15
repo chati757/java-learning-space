@@ -1,0 +1,10 @@
+{
+    "name": "Myproject",
+    "version": "1.0.0",
+    "dependencies": {
+        "connect": "*"
+    },
+    "dependenciesComments": {
+        "connect": "High performance middleware framework (req,res,next) , * it's mean lastest version"
+    }
+}
