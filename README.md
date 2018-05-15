@@ -62,7 +62,7 @@ basic java for nodejs and angularjs development
     npm update -g <npm_module_name>
 
 ## create dependency (package.json) (create in root of project)
-### manual type
+### manual type (example)
 
     {
         "name" : "NODE",
