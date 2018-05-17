@@ -14,20 +14,20 @@ basic java for nodejs and angularjs development
     XML tools
     Launcher
 
-### nodejs install (download LTS version)
+### install nodejs (download LTS version)
    
     http://nodejs.org
     
    *set path env in installtion path
    *check installation with node -v
 
-### angular install (download with npm command)
+### install angular (download with npm command)
     
     npm install -g @angularcli
     
    *check installation with npm -v
 
-### expressjs install 
+### install expressjs
 
     check in readme (5_express_framework)
 
