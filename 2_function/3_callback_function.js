@@ -18,6 +18,7 @@ fs.readFile('hello.txt',shout);//callback function
 //output : Say:helloworld
 
 //------------------------------------------------------------
+console.log("callback1")
 //
 //                 callback part
 //                     |
@@ -35,9 +36,32 @@ function loadNews(callback){
 console.log('do other thing');
 //use callback function
 loadNews(function(result){
+    console.log(result)
     //validateNews(result,function(news){
         //sortByLatest(news,function(lastest){ //problem callback in hell
             //console.log("final")
         //})
     //})
 })
+
+//------------------------------------------------------------
+console.log("callback2")
+function doSomethingOldStyle(successCallback, failureCallback) {
+    console.log("in doSomethingOldStyle");
+    // Succeed half of the time.
+    if (Math.random() > .5) {
+      successCallback("SUCCESS")
+    } else {
+      failureCallback("FAILURE")
+    }
+  }
+  
+  function successCallback(result) {
+    console.log("It succeeded with " + result);
+  }
+  
+  function failureCallback(error) {
+    console.log("It failed with " + error);
+  }
+  
+  doSomethingOldStyle(successCallback, failureCallback);
