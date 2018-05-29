@@ -13,6 +13,8 @@ basic java for nodejs and angularjs development
     vscode-icons
     XML tools
     Launcher
+    Live Server
+    ejs Snippets
 
 ### install nodejs (download LTS version)
    

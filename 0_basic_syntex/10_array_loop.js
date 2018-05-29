@@ -19,11 +19,11 @@ array2.forEach(e => {
 })
 console.log("result of forloop change:",result)
 //resolve side effect result2 not change forever
-const result2 = array.map(e=>{
-    const a=e*2
+const result2 = array2.map(e=>{
+    const a=e * 2
     return a
 })
-console.log("result of map (side effect resolve) change:",result)
+console.log("result of map (side effect resolve) change:",result2)
 console.log("for of")
 //for of can break loop before finish [that is a new feature]
 for (const v of array){

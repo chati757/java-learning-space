@@ -84,4 +84,7 @@ const obj_array = [
 ]
 
 const checker3 = obj_array.every(e=>e.type==='dog')
-console.log(checker3) //false
+console.log(checker3) //ture
+
+const checker4 = obj_array.some(e=>e.name==='fox')
+console.log(checker4) //ture it's mean some element of array > 0 ?,answer is true
