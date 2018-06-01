@@ -65,8 +65,14 @@ console.log(sum2)
 //--------------------------------------------------------
 //---------------indexOf and findIndex--------------------
 const c = [
-    {name:'luna'},
-    {name:'keira'}
+    {
+        name:'luna',
+        color:'blue'
+    },
+    {
+        name:'keira',
+        color:'red'
+    }
 ]
 console.log("test get value:",c[0].name) //luna
 //const index1 = c.indexOf({name:'luna'}) //error 
@@ -74,9 +80,12 @@ console.log("test get value:",c[0].name) //luna
 const index3 = c.find(e=>e.name==='luna') //resolve
 console.log("find")
 console.log(index3)
-const index4 = c.findIndex(e=>e.name==='keira') //resolve
+const index4 = c.find(e=>e.name==='luna') //resolve
+console.log("find 2")
+console.log(index4.color)
+const index5 = c.findIndex(e=>e.name==='keira') //resolve
 console.log("findIndex")
-console.log(index4)
+console.log(index5)
 //-------------------every and some-----------------------
 const obj_array = [
     {id:1,name:'fox',color:'orange',type:'dog'},
