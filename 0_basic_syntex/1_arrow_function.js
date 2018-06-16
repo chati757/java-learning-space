@@ -9,6 +9,12 @@ var arrowGreet = (name,message) => message + name
 console.log(greet('testname','testmassage'))
 console.log(arrowGreet('testname','testmassage'))
 
+console.log('arrow function (non parameter type)')
+var non_para = () => {
+    console.log('hello non parameter')
+}
+console.log(non_para())
+
 //---------------------------object function structure--------------------------------
 var person = {
     name: 'Luna',                      //callback function
