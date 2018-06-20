@@ -1,9 +1,15 @@
-//use backtrick
+//use backticks
 const multi = `test
-bar 
+bar
 barbar`
 
-console.log(multi)
+console.log(multi.replace(/\n/,''))
+
+const multi2 = "test\
+test\
+test"
+
+console.log(multi2.replace(/\n/,''))
 
 //-----------------------------------------------------------------
 
