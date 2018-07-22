@@ -1,4 +1,4 @@
-this lab is basic mvc structure (all file nad folders in this lab is structure for mvc structure) and using ejs for templete engine
+this lab is basic mvc structure (all file and folders in this lab is structure for mvc structure) and using ejs for templete engine
 and learn abount how to config env variable (development version and production version)
 structurefile of mvc
 app :
@@ -21,14 +21,14 @@ server.js : call express.js and call mvc application
 install module
     npm install
 
-install env application
+install packages in application
     add module name 3 module to package.json
-    "morgan" : "1.9.0",
-        "//":"HTTP request logger middleware for node.js",
-    "compression" : "1.7.2",
-        "//":"Node.js compression middleware.",
-    "body-parser" : "1.18.2",
-        "//":"Node.js body parsing middleware."
+        "morgan" : "1.9.0",
+            "//":"HTTP request logger middleware for node.js",
+        "compression" : "1.7.2",
+            "//":"Node.js compression middleware.",
+        "body-parser" : "1.18.2",
+            "//":"Node.js body parsing middleware."
     run:
         npm update
     
