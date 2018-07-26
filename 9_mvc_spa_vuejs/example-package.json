@@ -1,0 +1,37 @@
+{
+    "name": "Myproject",
+    "description": "",
+    "author":"",
+    "version": "1.0.0",
+    "scripts": {
+        "dev":""
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+      ],
+    "dependencies": {
+        "body-parser": "1.18.2",
+        "express": "4.16.3",
+        "cors":"",
+        "vue":"",
+        "vue-route": ""
+    },
+    "devDependencies": {
+        "compression": "1.7.2",
+        "morgan": "1.9.0",
+        "nodemon":"",
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-stage-3": "^6.24.1",
+        "cross-env": "^5.0.5"
+      },
+    "dependenciesComments": {
+        "devDependencies":"installation packages can split 2 thing that is intall at dependencies or install at devdependencie and incase npm install it's have 2 optinal to use it example (npm install --dev or --production)",
+        "morgan": "HTTP request logger middleware for node.js.",
+        "compression": "Node.js compression middleware.",
+        "body-parser": "Node.js body parsing middleware."
+    }
+}

@@ -24,6 +24,32 @@ ap
     console.log("reject:",e)
 })
 
+/*
+bad "then"
+//problem
+function do() {
+  return doA().then(function(a) {
+    return doB(a);
+  }).then(function(b) {
+    return doC(b);
+  });
+}
+
+//resolve by then :
+function do() {
+  return doA()
+  .then(a=>doB(a))
+  .then(b=>doC(b))
+  });
+}
+
+//resolve async and await:
+async function do() {
+  const a = await doA();
+  const b = await doB(a);
+  const c = await doC(b);
+}
+*/
 //-----------------------------------------------------------
 //resolve
 /*
@@ -81,6 +107,7 @@ async function run(){
     const news = await loadNews()
     return news
 }
+console.log("after (new feature) async and await")
 run()
     .then(e=>{
         console.log("inrun",e)

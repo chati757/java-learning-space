@@ -24,8 +24,8 @@ const f1 = person.first
 const l1 = person.last
 console.log(f1,l1)
 
-const {first:f2,last:l2} = person
-console.log(f2,l2)
+const {first,last} = person
+console.log(first,last)
 
 //destructure object from function
 console.log("destructure object from function")

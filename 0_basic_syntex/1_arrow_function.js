@@ -37,3 +37,21 @@ console.log("problem")
 person.greet_problem()
 console.log("resolve")
 person.greet_resolve()
+
+var atest = function(name){
+    return ('hello'+name)
+}
+console.log(atest('test'))
+
+var btest = function(){
+    return atest('test2')
+}
+console.log(btest())
+
+var ctest = ()=>atest('test3')
+console.log(ctest())
+
+var dtest =()=>{
+    return atest('test4')
+}
+console.log(dtest())
