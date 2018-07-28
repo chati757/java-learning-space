@@ -2,7 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './af_public/js/vue/entry.js',
+  entry: './app/routes/entry.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -14,9 +14,17 @@ module.exports = {
         test: /\.css$/,
         use: [
           'vue-style-loader',
-          'css-loader'
-        ],
-      },      {
+          {
+            loader:'css-loader',
+            options:{
+              name:'[name][ext]',
+              output:'public/css',
+              publicPath:'public/css'
+            }
+          }
+        ]
+      },      
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
@@ -42,8 +50,8 @@ module.exports = {
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'components':path.resolve(__dirname,'af_public','js','vue','components'),
-      'other':path.resolve(__dirname,'af_public','js','vue','others')
+      'components':path.resolve(__dirname,'app','views','components'),
+      'css':path.resolve(__dirname,'public','css')
     },
     extensions: ['*', '.js', '.vue', '.json']
   },
@@ -51,7 +59,7 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true,
     overlay: true,
-    contentBase:path.resolve(__dirname,'af_public','views')
+    contentBase:[path.resolve(__dirname,'app','views')]
   },
   performance: {
     hints: false

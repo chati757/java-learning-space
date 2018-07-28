@@ -1,8 +1,8 @@
 # 8_vuejs
 
 this project lean abount how to create vuejs(template engine) with vue-cli and package.json keywords 
-like dependencies , devependencies how it's different ? and lean about some package in package.json
-why do we need it ? 
+like dependencies , devependencies how it's different ? and learn about some package in package.json
+why do we need it ?
 
 ## Installation vue-cli
 
@@ -26,6 +26,8 @@ npm run dev
 # build for production with minification
 npm run build
 ```
+
+## file straucture changed
 
 ## learn about package.json keywords
     
