@@ -27,7 +27,45 @@ npm run dev
 npm run build
 ```
 
-## file straucture changed
+## file straucture changed and have to edit in webpack.config.js
 
-## learn about package.json keywords
+## meaning foreach package at "dependenciesComments" in package.json
+
+## install and setting vue router
+npm install --save vue-router
+app/route/entry.js
+    import Vue from 'vue'
+    >import VueRouter from 'vue-router'
+    import App from 'components/com_app.vue'
+    import CSS from 'css/bootstrap.css'
+
+    //create 11_userspage.vue file first file is app/views/components
+
+    >import Home from 'components/11_homepage.vue'
+    >import Users from 'components/11_userpage.vue'
+
+    >Vue.use(VueRouter);
+    >const routes = [
+    >   {path:'/',component:Home},
+    >   {path:'/users',component:Users}
+    >];
+
+    //get routes into VueRouter
+    >const router = new VueRouter({
+    >routes:routes,
+    >mode:'history' <-rid # in url of client
+    >})
+
+    //get router into application
+     new Vue({
+        el:'#app',
+        router,
+        render(createElements){
+            return createElements(App)
+        }
+    })
+
+app/components/com_app.vue
+    ><router-view></router-view>
+
     

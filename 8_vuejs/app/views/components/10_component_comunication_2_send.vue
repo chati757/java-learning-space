@@ -16,7 +16,7 @@
 </style>
 
 <script>
-  import comrecv from 'components/10_test_recve.vue'
+  import comrecv from 'components/10_component_comunication_2_recve.vue'
   export default {
     components:{comrecv},
     data(){

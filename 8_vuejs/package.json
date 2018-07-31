@@ -10,7 +10,8 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "vue": "^2.5.11"
+    "vue": "^2.5.11",
+    "vue-router": "^3.0.1"
   },
   "browserslist": [
     "> 1%",
@@ -31,12 +32,12 @@
     "webpack-dev-server": "^2.9.1"
   },
   "dependenciesComments": {
-    "webpack:":"javascript module bundler (.html file helper)",
-    "webpack-dev-server":"development server can live and reloading",
+    "webpack:": "javascript module bundler (.html file helper)",
+    "webpack-dev-server": "development server can live and reloading",
     "babel-core": "transpiling javascript",
     "babel-loader": "middle between babel-core and webpack",
-    "*-loader":"middle between xxx and webpack",
-    "cross-env":"cross platform of environment setting Ex.linux and windows is not a same in setting env so this is helper",
+    "*-loader": "middle between xxx and webpack",
+    "cross-env": "cross platform of environment setting Ex.linux and windows is not a same in setting env so this is helper",
     "compression": "Node.js compression middleware.",
     "body-parser": "Node.js body parsing middleware."
   }

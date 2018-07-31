@@ -19,6 +19,10 @@
     <div class="row">
       <compcomsender></compcomsender>
       <compcomsender2></compcomsender2>
+      <linkroute></linkroute>
+    </div>
+    <div class="row">
+      <router-view></router-view>
     </div>
   </div>
   </section>
@@ -53,10 +57,23 @@
   import filtered from 'components/8_filter.vue'
   //testing component comunication
   import compcomsender from 'components/9_component_comunication_send.vue'
-  
-  import compcomsender2 from 'components/10_test_send.vue'
+  import compcomsender2 from 'components/10_component_comunication_2_send.vue'
+  //testing routing and link
+  import linkroute from 'components/11_routing_link.vue'
 
   export default {
-    components:{subpanel,eventvon,vfor,bindhtml,bindcss,computedprop,condif,filtered,compcomsender,compcomsender2}
+    components:{
+      subpanel,
+      eventvon,
+      vfor,
+      bindhtml,
+      bindcss,
+      computedprop,
+      condif,
+      filtered,
+      compcomsender,
+      compcomsender2,
+      linkroute
+    }
   }
 </script>
