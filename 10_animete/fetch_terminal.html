@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>animete testing</title>
+  </head>
+  <body>
+    <p id="coordinates"></p>
+    <div class="terminalwrapper" onscroll="checkscroll()">
+        <div class="terminal">testtest</div>
+    </div>
+  </body>
+</html>
+
+<script>
+    const terminalElement = document.getElementsByClassName("terminal")[0];
+    const dialogue = document.getElementsByClassName("dialogue")[0];
+    const terminalwrapper = document.getElementsByClassName("terminalwrapper")[0];
+
+    function checkscroll(){
+        const x = terminalwrapper.scrollLeft;
+        const y = terminalwrapper.scrollTop;
+        const h = terminalwrapper.scrollHeight;
+        document.getElementById ("coordinates").innerHTML = "Horizontally: " + x + "px<br>Vertically: " + y + "px<br>" + "scroll height: "+ h;
+    }
+
+    function snakeText(from, to, refreshRate, charAmount, autoScroll){
+        let fromText,toText,l,i
+        refreshRate	= refreshRate || 20,
+        charAmount = charAmount	|| 1;
+        //normal 1-5
+        if(3 === from.nodeType){
+            console.log("1");
+            fromText = from;
+        }
+
+        else{
+            console.log("2");
+            for(i = l = from.childNodes.length-1; i >= 0; --i){
+                if(3 === from.childNodes[i].nodeType){
+                    fromText = from.childNodes[i];
+                    break;
+                }
+            }
+        }
+
+        if(!fromText){
+            console.log("3");
+            throw new ArgumentError("Source object is neither a text node or element containing any text nodes.");
+        }
+
+        if(3 === to.nodeType){
+            console.log("4");
+            toText = to;
+        }
+
+        else{
+            console.log("5");
+            for(i = l = to.childNodes.length-1; i >= 0; --i){
+                if(3 === to.childNodes[i].nodeType){
+                    toText = to.childNodes[i];
+                    break;
+                }
+            }
+        }
+
+        toText = toText || to.appendChild(document.createTextNode(""));
+        const interval = setInterval(function(){
+            console.log("interval running")
+            let from = fromText.data;
+            console.log(from.length)
+            
+            if(!from.length){
+                return clearInterval(interval);
+            }
+
+            toText.data += from.substr(0, charAmount);
+            fromText.data = from.substr(charAmount);
+
+            if(autoScroll && terminalwrapper.scrollTop < terminalwrapper.scrollHeight){
+                console.log("in auto")
+                //checkscroll();
+                terminalwrapper.scrollTop = terminalwrapper.scrollHeight
+                
+            }
+        }, refreshRate);
+        return interval;
+    }
+
+    //var stringData = $.ajax({
+    //                    url: "https://textfiles.com/computers/2ndrs232.txt",
+    //                    async: false
+    //               }).responseText;
+
+    stringData = "This program removes all control codes except for line feeds\r\n;\r\n; CLEAN --- a utility to filter text files.\r\n; This program removes all control codes except\r\n; for line feeds, carriage returns, and form\r\n; feeds, strips off the high bit of all characters,\r\n; and expands tabs.  Can be used to make a Wordstar\r\n; file acceptable for other screen or line editors,\r\n; and vice versa.\r\n;\r\ncr	equ	0dh		;ASCII carriage return\r\nlf	equ	0ah		;ASCII line feed\r\nff	equ	0ch		;ASCII form feed\r\neof	equ	01ah		;End of file marker\r\ntab	equ	09h		;ASCII tab character\r\ncommand	equ	80h		;buffer for command tail\r\nblksize	equ	1024		;blocking/deblocking size\r\ncseg	segment	para public 'CODE'\r\n	assume	cs:cseg,ds:data,es:data,ss:stack\r\nclean	proc	far		;entry point from PC-DOS\r\n	push	ds		;save DS:0000 for final\r\n	xor	ax,ax		;return to PC-DOS\r\n	push	ax\r\n	mov	ax,data		;make our data segment\r\n	mov	es,ax		;addressable via ES register\r\n	call	infile		;get path and file spec.\r\n				;for input file\r\n	mov	ax,es		;set DS=ES for remainder\r\n	mov	ds,ax		;of program\r\n	jnc	clean1		;jump, got acceptable name\r\n	mov	dx,offset msg4	;missing or illegal filespec,\r\n	jmp	clean9		;print error message and exit.\r\nclean1:	call	outfile		;set up output file name\r\n	call	open_input	;now try to open input file\r\n	jnc	clean2		;jump,opened input ok\r\n	mov	dx,offset msg1	;open of input file failed,\r\n	jmp	clean9		;print error msg and exit.\r\nclean2:\r\n	call	open_output	;try to open output file.\r\n	jnc	clean25		;jump,opened ok\r\n	mov	dx,offset msg2	;open of output file failed,\r\n	jmp	clean9		;print error message and exit.\r\nclean25:			;set up buffers\r\n	call	init_buffs\r\n	call	sign_on		;print ident and file names\r\n \r\n				;files successfully opened,		\r\nclean3:				;now filter the file.  \r\n	call	get_char	;read 1 character from input.\r\n	and	al,07fh		;strip off the high bit\r\n	cmp	al,20h		;is it a control code?\r\n	jae	clean4		;no,write it to new file	\r\n				;yes it is control code,\r\n	cmp	al,eof		;is it end of file marker?\r\n	je	clean6		;yes,jump to close files.\r\n	cmp	al,tab		;is it a tab command?\r\n	jz	clean5		;yes,jump to special processing.\r\n	cmp	al,cr		;if control code other than\r\n	je	clean35		;tab or end-of-file mark, throw \r\n	cmp	al,ff		;it away unless it is a \r\n	je	clean35		;form feed, carriage return,\r\n	cmp	al,lf		;or line feed.\r\n	jne	clean3		\r\nclean35:			;If it is one of those three,\r\n	mov	column,0	;incidentally initialize\r\n	jmp	clean45		;column count for tab processor.\r\nclean4:				;count alphanumeric chars. sent.\r\n	inc	column\r\nclean45:			;write this character to \r\n	call	put_char	;output file,\r\n	jnc	clean3		;if CY not set, write was\r\n				;ok so go get next char.\r\nclean47:\r\n	call	close_input	;if CY set, disk is full\r\n	call	close_output	;so close files and exit\r\n	mov	dx,offset msg5  ;with error message.\r\n	jmp	clean9\r\nclean5:				;process tab character\r\n	mov	ax,column	;let DX:AX=column count\r\n	cwd\r\n	mov	cx,8		;divide it by eight...\r\n	idiv	cx\r\n	sub	cx,dx		;remainder is in DX.\r\n	add	column,cx	;update column pointer.\r\nclean55:			;8 minus the remainder \r\n	push	cx		;gives us the number of\r\n	mov	al,20h		;spaces to send out to\r\n	call	put_char	;move to the next tab position\r\n	pop	cx		;restore space count\r\n	jc	clean47		;jump if disk is full\r\n	loop	clean55\r\n	jmp	short clean3	;get next character \r\nclean6:				;end of file detected,\r\n	call	put_char	;write end-of-file marker,\r\n	jc	clean47		;jump if disk was full\r\n	call	flush_buffs	;write remaining data to disk\r\n	jc	clean47		;if CY set,disk was full\r\n				;otherwise file was written ok	\r\n	call	close_input	;close input and output \r\n	call	close_output	;files.\r\n	mov	dx,offset msg3	;addr of success message,\r\nclean9:				;print message and return\r\n	mov	ah,9		;control to PC-DOS\r\n	int	21h\r\n	ret\r\nclean	endp\r\ninfile	proc	near		;process name of input file\r\n				;DS:SI <- addr command line	\r\n	mov	si,offset command\r\n				;ES:DI <- addr filespec buffer\r\n	mov	di,offset input_name\r\n	cld\r\n	lodsb			;any command line present?\r\n	or	al,al		;return error status if not.\r\n	jz	infile4\r\ninfile1:         		;scan over leading blanks\r\n	lodsb			;to file name\r\n	cmp	al,cr		;if we hit carriage return\r\n	jz	infile4 	;filename is missing.\r\n	cmp	al,20h		;is this a blank?\r\n	jz	infile1		;if so keep scanning.\r\ninfile2: 			;found first char of name,\r\n	stosb			;move last char. to output\r\n				;file name buffer. \r\n	lodsb			;check next character, found\r\n	cmp	al,cr		;carriage return yet?  	\r\n	je	infile3		;yes,exit with success code\r\n	cmp	al,20h		;is this a blank?\r\n	jne 	infile2		;if not keep moving chars.\r\ninfile3: 			;exit with carry =0\r\n	clc			;for success flag\r\n	ret\r\ninfile4: 			;exit with carry =1\r\n	stc			;for error flag\r\n	ret\r\ninfile  endp \r\noutfile	proc	near		;set up path and file\r\n	cld			;name for output file.\r\n	mov	cx,64		;length to move\r\n	mov	si,offset input_name  ;source addr\r\n	mov	di,offset output_name ;dest addr\r\n	rep movsb		;transfer the string\r\n	mov	di,offset output_name\r\noutfile1:			;scan string looking for\r\n	mov	al,[di] 	;\".\" marking start of extension\r\n	or	al,al		;or zero byte marking name end.\r\n	jz	outfile2	;if either is found,jump.\r\n	cmp	al,'.'\r\n	je	outfile2	;bump string pointer, loop\r\n	inc	di		;if neither '.' or zero found.\r\n	jmp	outfile1	\r\noutfile2:			;found zero or '.',force the\r\n				;extension of the output file	\r\n				;to '.CLN'\r\n	mov	si,offset outfile_ext\r\n	mov	cx,5\r\n	rep movsb\r\n	ret			;back to caller\r\noutfile endp\r\nopen_input proc near		;open input file\r\n				;DS:DX=addr filename\r\n	mov	dx,offset input_name\r\n	mov	al,0		;AL=0 for read only\r\n	mov	ah,3dh		;function 3dh=open\r\n	int     21h		;handle returned in AX,\r\n	mov	input_handle,ax ;save it for later.\r\n	ret			;CY is set if error\r\nopen_input endp\r\nopen_output proc near		;open output file\r\n				;DS:DX=addr filename\r\n	mov	dx,offset output_name\r\n	mov	al,1		;AL=1 for write	only\r\n	mov	ah,3ch		;function 3ch=MAKE or\r\n	int	21h		;truncate existing file\r\n				;handle returned in AX\r\n	mov	output_handle,ax;save it for later.\r\n	ret			;return CY=true if error\r\nopen_output endp\r\nclose_input proc near		;close input file\r\n	mov	bx,input_handle ;BX=handle\r\n	mov	ah,3eh\r\n	int	21h\r\n	ret\r\nclose_input endp\r\nclose_output proc near		;close output file\r\n	mov	bx,output_handle;BX=handle\r\n	mov	ah,3eh\r\n	int	21h\r\n	ret\r\nclose_output endp\r\nget_char proc 	near		;get one character from input buffer\r\n	mov	bx,input_ptr\r\n	cmp	bx,blksize\r\n	jne	get_char1\r\n	call	read_block\r\n	mov	bx,0\r\nget_char1:\r\n	mov	al,[input_buffer+bx]\r\n	inc	bx\r\n	mov	input_ptr,bx\r\n	ret\r\nget_char endp	\r\nput_char proc	near		;put one character into output buffer\r\n	mov	bx,output_ptr\r\n	mov	[output_buffer+bx],al\r\n	inc	bx\r\n	mov	output_ptr,bx\r\n	cmp	bx,blksize	;buffer full yet?\r\n	jne	put_char1	;no,jump\r\n	call	write_block	;yes,write the block\r\n	ret			;return CY as status code\r\nput_char1:\r\n	clc			;return CY clear for OK status\r\n	ret\r\nput_char endp\r\nread_block proc near\r\n	mov	bx,input_handle ;read first block of input\r\n	mov	cx,blksize\r\n	mov	dx,offset input_buffer\r\n	mov	ah,3fh\r\n	int	21h\r\n	jnc	read_block1	;jump if no error status\r\n	mov	ax,0		;simulate a zero length read if error\r\nread_block1:			\r\n	cmp	ax,blksize	;was full buffer read in?\r\n	je	read_block2	;yes,jump\r\n	mov	bx,ax		;no, store End-of-File mark\r\n	mov	byte ptr [input_buffer+bx],eof\r\nread_block2:\r\n	xor	ax,ax		;initialize input buffer pointer\r\n	mov	input_ptr,ax	\r\n	ret\r\nread_block endp\r\nwrite_block proc near		;write blocked output (blksize bytes)\r\n	mov	dx,offset output_buffer\r\n	mov	cx,blksize\r\n	mov	bx,output_handle\r\n	mov	ah,40h\r\n	int	21h\r\n	xor	bx,bx		;initialize pointer to blocking buffer\r\n	mov	output_ptr,bx\r\n	cmp	ax,blksize	;was correct length written?\r\n	jne	write_block1	;no,disk must be full\r\n	clc			;yes,return CY=0 indicating all OK\r\n	ret\r\nwrite_block1:			;disk is full, return CY =1\r\n	stc			;as error code\r\n	ret\r\nwrite_block endp\r\ninit_buffs proc near\r\n	call	read_block	;read 1st block of input\r\n	xor	ax,ax		;initialize pointer to output\r\n	mov	output_ptr,ax	;output blocking buffer\r\n	ret\r\ninit_buffs endp\r\nflush_buffs proc near		;write any data in output buffer to disk\r\n	mov	cx,output_ptr\r\n	or	cx,cx\r\n	jz	flush_buffs1	;jump,buffer is empty\r\n	mov	bx,output_handle\r\n	mov	dx,offset output_buffer\r\n	mov	ah,40h\r\n	int	21h\r\n	cmp	ax,output_ptr	;was write successful?\r\n	jnz	flush_buffs2	;no,jump\r\nflush_buffs1: \r\n	clc			;yes,return CY=0 for\r\n	ret			;success flag\r\nflush_buffs2:			;disk was full so write failed,\r\n	stc			;return CY=1 as error flag\r\n	ret\r\nflush_buffs endp\r\nsign_on proc	near		;print sign-on message\r\n	mov	dx,offset msg6	;title...\r\n	mov	ah,9\r\n	int	21h\r\n	mov	dx,offset msg7	;input file:\r\n	mov	ah,9\r\n	int	21h\r\n	mov	dx,offset input_name\r\n	call	pasciiz\r\n	mov	dx,offset msg8	;output file:\r\n	mov	ah,9\r\n	int	21h\r\n	mov	dx,offset output_name\r\n	call	pasciiz\r\n	mov	dx,offset msg9\r\n	mov	ah,9\r\n	int	21h\r\n	ret\r\nsign_on	endp\r\npasciiz	proc	near		;call DX=offset of ASCIIZ string\r\n	mov	bx,dx		;which will be printed on standard output\r\npasciiz1:\r\n	mov	dl,[bx]\r\n	or	dl,dl\r\n	jz	pasciiz9\r\n	cmp	dl,'A'\r\n	jb	pasciiz2\r\n	cmp	dl,'Z'\r\n	ja	pasciiz2\r\n	or	dl,20h\r\npasciiz2:\r\n	mov	ah,2\r\n	int	21h\r\n	inc	bx\r\n	jmp	pasciiz1\r\npasciiz9:\r\n	ret\r\npasciiz endp\r\ncseg	ends\r\ndata	segment	para public 'DATA'\r\ninput_name	db	64 dup (0)	;buffer for input filespec\r\noutput_name	db	64 dup (0)	;buffer for output filespec	\r\ninput_handle	dw	0		;token returned by PCDOS\r\noutput_handle	dw	0		;token returned by PCDOS\r\ninput_ptr	dw	0		;pointer to input blocking buffer\r\noutput_ptr	dw	0		;pointer to output blocking buffer\r\noutfile_ext	db 	'.CLN',0	;extension for filtered file\r\ncolumn		dw	0		;column count for tab processing\r\nmsg1		db	cr,lf\r\n		db	'Cannot find input file.'\r\n		db	cr,lf,'$'\r\nmsg2		db	cr,lf\r\n		db	'Failed to open output file.'\r\n		db	cr,lf,'$'\r\nmsg3		db	cr,lf\r\n		db	'File processing completed'\r\n		db	cr,lf,'$'\r\nmsg4		db	cr,lf\r\n		db	'Missing file name.'\r\n		db	cr,lf,'$'\r\nmsg5		db	cr,lf\r\n		db	'Disk is full.'\r\n		db	cr,lf,'$'\r\nmsg6		db	cr,lf\r\n		db	'Clean Word Processing File'\r\n		db	cr,lf\r\n		db	'WWW.'\r\n		db	cr,lf,'$'\r\nmsg7		db	cr,lf,'Input file:   $'\r\nmsg8		db	cr,lf,'Output file:  $'\r\nmsg9		db	cr,lf,'$'\r\ninput_buffer	db	blksize dup (?)	;buffer for deblocking of data\r\n					;from input file\r\noutput_buffer	db	blksize dup (?)	;buffer for blocking of data\r\n					;sent to output file\r\ndata 	ends	\r\nstack	segment	para stack 'STACK'\r\n	db	64 dup (?)\r\nstack	ends\r\n	end	clean\r\n"
+
+    snakeText(document.createTextNode(stringData), terminalElement, 10, 4, true);
+</script>
+
+<style>
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+::-webkit-scrollbar-thumb {
+    background: #1f4b18;
+    border: 0px none #ffffff;
+    border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #36882b;
+}
+::-webkit-scrollbar-thumb:active {
+    background: #3f9b31;
+}
+::-webkit-scrollbar-track {
+    background: #000000;
+    border: 0px none #ffffff;
+    border-radius: 0px;
+}
+::-webkit-scrollbar-track:hover {
+    background: #000000;
+}
+::-webkit-scrollbar-track:active {
+    background: #000000;
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+html{
+    background: #000;
+    color: #0a0;
+    text-shadow: 0 0 3px #0f0;
+    font: 10pt monospace;
+    white-space: pre;
+    tab-size: 4;
+}
+
+.terminalwrapper {
+    position: absolute;
+    width: 600px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 80%;
+    overflow-y: scroll;
+}
+
+.terminal {
+}
+
+</style>
