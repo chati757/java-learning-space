@@ -32,53 +32,59 @@ npm run build
 ## meaning foreach package at "dependenciesComments" in package.json
 
 ## install and setting vue router
-    npm install --save vue-router
-    app/route/entry.js
-        import Vue from 'vue'
-        >import VueRouter from 'vue-router'
-        import App from 'components/com_app.vue'
-        import CSS from 'css/bootstrap.css'
+npm install --save vue-router
+app/route/entry.js
+    import Vue from 'vue'
+    >import VueRouter from 'vue-router'
+    import App from 'components/com_app.vue'
+    import CSS from 'css/bootstrap.css'
 
-        //create 11_userspage.vue file first file is app/views/components
+    //create 11_userspage.vue file first file is app/views/components
 
-        >import Home from 'components/11_homepage.vue'
-        >import Users from 'components/11_userpage.vue'
+    >import Home from 'components/11_homepage.vue'
+    >import Users from 'components/11_userpage.vue'
 
-        >Vue.use(VueRouter);
-        >const routes = [
-        >   {path:'/',component:Home},
-        >   {path:'/users',component:Users},
-        >   {path:'*',component:Notfound} //incase page not found
-        >];
+    >Vue.use(VueRouter);
+    >const routes = [
+    >   {path:'/',component:Home},
+    >   {path:'/users',component:Users},
+    >   {path:'*',component:Notfound} //incase page not found
+    >];
 
-        //get routes into VueRouter
-        >const router = new VueRouter({
-        >routes:routes,
-        >mode:'history' <-rid # in url of client
-        >})
+    //get routes into VueRouter
+    >const router = new VueRouter({
+    >routes:routes,
+    >mode:'history' <-rid # in url of client
+    >})
 
-        //get router into application
-        new Vue({
-            el:'#app',
-            router,
-            render(createElements){
-                return createElements(App)
-            }
-        })
+    //get router into application
+    new Vue({
+        el:'#app',
+        router,
+        render(createElements){
+            return createElements(App)
+        }
+    })
 
-    app/components/com_app.vue
-        ><router-view></router-view>
-        
-        ><script>
-            import linkroute from 'components/11_routing_link.vue'
-            export defualt {
-                components:{
-        >           linkroute
-                }
-            }
-        ></script>
+app/views/components/com_app.vue
+    ><router-view></router-view>
     
-    see more in 11_routing_link.vue , 11_notfoundpage.vue , 11_userpage.vue , 11_homepage.vue
+    ><script>
+        import linkroute from 'components/11_routing_link.vue'
+        export defualt {
+            components:{
+    >           linkroute
+            }
+        }
+    ></script>
 
+see more in 11_routing_link.vue , 11_notfoundpage.vue , 11_userpage.vue , 11_homepage.vue
+
+## install vuex
+npm install --save vuex
+
+app/route/store.js
+app/views/components/12_vuex_1_.vue
+app/views/components/12_vuex_2_.vue
 
     

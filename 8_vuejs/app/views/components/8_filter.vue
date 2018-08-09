@@ -9,7 +9,7 @@
 <style scoped>
   .sub-panel{
     width:230px;
-    height:120px;
+    height:280px;
     padding:8px;
     border-radius:5px;  
   }

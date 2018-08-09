@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from 'components/com_app.vue'
 import CSS from 'css/bootstrap.css'
+import { store } from './store.js'
 
 import Home from 'components/11_homepage.vue'
 import Users from 'components/11_userpage.vue'
@@ -23,10 +24,10 @@ const router = new VueRouter({
 })
 
 //get router into application
-
 new Vue({
   el:'#app',
-  router,
+  store:store,
+  router:router,
   render(createElements){
     return createElements(App)
   }

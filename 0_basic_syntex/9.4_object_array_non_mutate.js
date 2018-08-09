@@ -18,7 +18,9 @@ const newArr = [
     'strawberry',
     ...arr.slice(1)//appple,mango
 ]
+console.log("newArr")
 console.log(newArr) //['banana','strawberry','apple','mango']
+console.log("arr")
 console.log(arr) //is not change ['banana','apple','mango']
 //--------------------------------------------------------
 //----------------------map-------------------------------

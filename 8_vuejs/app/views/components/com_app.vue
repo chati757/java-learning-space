@@ -15,6 +15,8 @@
     </div>
     <div class="row">
       <filtered></filtered>
+      <register1></register1>
+      <register2></register2>
     </div>
     <div class="row">
       <compcomsender></compcomsender>
@@ -60,8 +62,12 @@
   import compcomsender2 from 'components/10_component_comunication_2_send.vue'
   //testing routing and link
   import linkroute from 'components/11_routing_link.vue'
+  //testing vuex
+  import register1 from 'components/12_vuex_1.vue'
+  import register2 from 'components/12_vuex_2.vue'
 
   export default {
+    //--------------part of vuex---------------
     components:{
       subpanel,
       eventvon,
@@ -73,7 +79,9 @@
       filtered,
       compcomsender,
       compcomsender2,
-      linkroute
+      linkroute,
+      register1,
+      register2
     }
   }
 </script>
