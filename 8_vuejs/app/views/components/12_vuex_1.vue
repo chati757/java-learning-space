@@ -23,6 +23,7 @@
 </style>
 
 <script>
+    import {mapGetters} from 'vuex'
     export default {
         data(){
             return{
@@ -30,21 +31,21 @@
             }
         },
         methods:{
+            //optional 2/2 for called mutation 
             unregister(registration){
-                const user = this.$store.state.users.find(user => {
-                    return user.id == registration.userId
+                this.$store.commit({
+                    type: 'unregister',
+                    userId: registration.userId
                 })
-                user.registered = false
-                this.$store.state.registrations.splice(this.registrations.indexOf(registration),1)
             }
         },
+        //other way of map type (mapgetters type)(require babel-preset-stage-2 or 3)(for use... spread operator)
         computed:{
-            registrations(){
-                return this.$store.state.registrations
-            },
-            total(){
-                return this.$store.state.registrations.length
-            }
+            ...mapGetters({
+                registrations:'registrations',
+                total:'totalregistrations'
+            })
         }
+        
     }
 </script>

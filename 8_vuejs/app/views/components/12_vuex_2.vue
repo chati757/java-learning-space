@@ -24,17 +24,17 @@
                 titlename:'vuex_2_registration',
             }
         },
+        //manual map type
         computed:{
             users(){
-                return this.$store.state.users.filter(user => {
-                    return (user.registered==false)
-                })
+                return this.$store.getters.unregisteredUsers
             }
         },
         methods:{
             registerUser(user){
-                user.registered = true;
-                this.$store.state.registrations.push({userId:user.id,name:user.name})
+                //optional 1/2 for called mutation 
+                //this.$store.commit('register',user.id);
+                this.$store.dispatch('register',user.id) //<--name of action and payload
             }
         }
         
