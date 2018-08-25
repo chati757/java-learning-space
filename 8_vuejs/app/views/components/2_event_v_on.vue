@@ -26,6 +26,7 @@
         },
         methods:{
             changedata(event){
+                console.log(event)
                 this.test = "change data"
             }
         }

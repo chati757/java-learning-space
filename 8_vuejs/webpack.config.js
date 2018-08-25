@@ -18,7 +18,7 @@ module.exports = {
             loader:'css-loader',
             options:{
               name:'[name][ext]',
-              output:'public/css',
+              output:'/dist/css',
               publicPath:'public/css'
             }
           }

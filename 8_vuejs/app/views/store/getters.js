@@ -1,7 +1,8 @@
 export default {
     unregisteredUsers(state){
         return state.users.filter(user => {
-            return !user.registered
+            //return !user.registered
+            return user.registered!=true
         })
     },
     registrations(state){

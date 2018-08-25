@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from 'components/com_app.vue'
 import CSS from 'css/bootstrap.css'
+//vuex
 import { store } from '../views/store/store.js'
 
 import Home from 'components/11_homepage.vue'

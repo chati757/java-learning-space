@@ -20,8 +20,8 @@ export default {
         })
         user_unregister.registered = false
 
-        const registration = state.registrations.find(registration => {
-            return registration.userId == payload.userId
+        const registration = state.registrations.find(regis => {
+            return regis.userId == payload.userId
         })
         state.registrations.splice(state.registrations.indexOf(registration),1)
     }

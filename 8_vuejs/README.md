@@ -82,9 +82,12 @@ see more in 11_routing_link.vue , 11_notfoundpage.vue , 11_userpage.vue , 11_hom
 
 ## install vuex
 npm install --save vuex
-
-app/route/store.js
-app/views/components/12_vuex_1_.vue
-app/views/components/12_vuex_2_.vue
+    app/route/entry.js
+    app/store/store.js
+    app/store/actions.js
+    app/store/getters.js
+    app/store/mutations.js
+    app/views/components/12_vuex_1_.vue
+    app/views/components/12_vuex_2_.vue
 
     

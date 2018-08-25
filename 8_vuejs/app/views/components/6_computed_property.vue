@@ -25,7 +25,7 @@ export default {
         }
     },
     methods:{
-        increment(){
+        increment(event){
             this.clicksnumval++;
         }
     },
