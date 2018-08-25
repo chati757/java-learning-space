@@ -18,6 +18,14 @@ const createStore  = () =>{
             }
         },
         actions:{
+            //special action from nuxtjs (first dispatched on the server)(only server)
+            nuxtServerInit(vuexContext,context){
+                return new Promise((resolve,reject)=>{
+                    setTimeout(()=>{
+                        
+                    })
+                })
+            },
             setPost(vuexContext , post){
                 vuexContext.commit('setData',post)
             }
@@ -35,6 +43,6 @@ export default createStore
 /*
     //example for using
     created(){
-        this.$store.dispatch('setData')
+        this.$store.dispatch('setData',this.data_object_from_somepage)
     }
 */

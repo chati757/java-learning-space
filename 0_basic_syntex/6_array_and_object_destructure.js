@@ -19,6 +19,7 @@ console.log("original array:",array)//not change
 
 console.log("destructure object")
 const person = {first:'Jane',last:'Doe'}
+console.log(person)
 
 const f1 = person.first
 const l1 = person.last
@@ -26,6 +27,14 @@ console.log(f1,l1)
 
 const {first,last} = person
 console.log(first,last)
+
+var a4,b4
+var data = {a: 10, b: 20, c: 30, d: 40};
+var data2 = {...data,e:90};
+console.log(a4); // 10
+console.log(b4); // 20
+console.log("from data2",data2); // {c: 30, d: 40}
+
 
 //destructure object from function
 console.log("destructure object from function")
