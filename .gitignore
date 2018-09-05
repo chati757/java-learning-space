@@ -1,5 +1,6 @@
 #ignore all modules
 **\node_modules
+package-lock.json
 ./8_vuejs/package-lock.json
 8_vuejs/package-lock.json
 **/package-lock.json
