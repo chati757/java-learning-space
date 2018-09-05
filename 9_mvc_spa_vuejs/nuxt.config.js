@@ -51,6 +51,22 @@ module.exports = {
     */
     extend(config, ctx) {
       
+    },
+    /*prevent unknow path from user*/ 
+    router:{
+      extendRoutes(routes,reslove){
+        routes.push({
+          path:'*',
+          component:resolve(__dirname,'pages/index.vue')
+        })
+      }
     }
-  }
+  },
+  /*middleware server*/
+  /*
+  serverMiddleware:[
+    bodyParser.json(),
+    '~/api'
+  ]
+  */
 }

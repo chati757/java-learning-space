@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
+</head>
+<body>
+	<div class="test-pos">
+		<div class="flex-container first">
+			<div style="animation-name: none;-moz-animation-name:none;-webkit-animation-name:none;">&nbsp;</div>
+			<div style="animation-delay: 2s;">M</div>
+			<div style="animation-delay: 3.5s;">&nbsp;I</div>
+			<div style="animation-delay: 2s;" class="shift-text">N</div>
+			<div style="animation-delay: 3.5s;" >T</div>
+			<div style="animation-delay: 2s;" >&nbsp;</div>
+		</div>
+		<div class="flex-container second">
+			<div style="animation-delay: 2s;" >P</div>
+			<div style="animation-delay: 3.5s;" >L</div>
+			<div style="animation-delay: 2.5s;" >A</div>
+			<div style="animation-delay: 3.5s;" >N</div>
+			<div style="animation-delay: 2.5s;" >E</div>
+			<div style="animation-delay: 2s;" >T</div>
+		</div>
+
+		<div id="CSStransforms">
+			<div class="square el"></div>
+		</div>
+
+		<svg version="1.1" id="Layer_1" x="0px" y="0px" width="200px" height="200px" viewBox="0 80 200 200" enable-background="new 0 0 200 200">
+			<g>
+				<defs>
+					<polygon id="SVGID_1_" points="71.736,205.501 71.963,165.944 129.153,109.407 148.819,129.298">
+						<animateTransform attributeName="transform"
+						attributeType="XML"
+						type="translate"
+						from="60 -60"
+						to="0"
+						dur="0.5s"
+						fill="freeze"
+						repeatCount="1"/>
+					</polygon>
+				</defs>
+
+				<clipPath id="SVGID_2_">
+					<use xlink:href="#SVGID_1_"  overflow="visible"/>
+				</clipPath>
+				
+				<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="53.7832" y1="280.1523" x2="130.5388" y2="356.908" gradientTransform="matrix(1 0 0 -1 8.3398 476.04)">
+					<stop  offset="0" style="stop-color:#E9FF5D"/>
+					<stop  offset="1" style="stop-color:#CAFF63"/>
+				</linearGradient>
+
+				<polygon clip-path="url(#SVGID_2_)" fill="url(#SVGID_3_)" points="71.736,205.501 71.963,165.943 129.153,109.406 148.819,129.298"/>
+			</g>
+			<g>
+				<defs>
+					<polygon id="SVGID_4_" points="71.736,205.501 91.628,185.836 148.166,243.025 128.273,262.691">
+						<animateTransform attributeName="transform"
+						begin="0.5"
+						type="translate"
+						from="0"
+						to="-57 -57"
+						dur="0.5s"
+						fill="freeze"
+						repeatCount="1"
+						/>
+					</polygon>
+				</defs>
+
+				<clipPath id="SVGID_5_">
+					<use xlink:href="#SVGID_4_"  overflow="visible"/>
+				</clipPath>
+				
+				<linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="73.1216" y1="280.2646" x2="130.0991" y2="223.2871" gradientTransform="matrix(1 0 0 -1 8.3398 476.04)">
+					<stop  offset="0" style="stop-color:#3AFA87"/>
+					<stop  offset="1" style="stop-color:#2BB1EA"/>
+				</linearGradient>
+
+				<polygon clip-path="url(#SVGID_5_)" fill="url(#SVGID_6_)" points="14.266,148.031 34.158,128.366 90.696,185.556 70.803,205.221">
+						<animateTransform attributeName="transform"
+						begin="0.5"
+						type="translate"
+						from="0"
+						to="57 57"
+						dur="0.5s"
+						fill="freeze"
+						repeatCount="1"
+						/>
+				</polygon>
+			</g>
+		</svg>
+	</div>
+
+</body>
+</html>
+
+<style>
+	/*-------------------------temp-----------------------*/
+    @font-face{
+        font-family: 'basica';
+        src: url('./fonts/basica.ttf');
+    }
+	div.test-pos{
+		width:700px;
+		position:absolute;
+		top:25%;
+		left:25%;
+	}
+    /*-------------------------temp-----------------------*/
+    /*-------------------------intro----------------------*/
+    .flex-container.first{
+		left:200px;
+		top:80px;
+        display: flex;
+		position: absolute;
+    }
+
+	.flex-container.second{
+		left:180px;
+		top:110px;
+        display: flex;
+		position: absolute;
+    }
+
+    .flex-container > div {
+		font-family:'basica';
+        color:#FFFFFF;
+        padding: 20px;
+        font-size: 30px;
+        -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+		-webkit-animation-duration: 1.6s; /* Safari 4.0 - 8.0 */
+		-webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+        animation-name: example;
+		animation-duration: 1.6s;
+		animation-fill-mode: forwards;
+		opacity:0;
+    }
+	.shift-text{
+		margin-left:10px;
+	}
+
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes example {
+        0%	{opacity:0;background:none;}
+		94%	{opacity:0.8;background:none;}
+		96%	{opacity:0;background:#FFFFFF;}
+		98%	{opacity:1;background:none;}
+		99%	{opacity:0;background:#FFFFFF;}
+		100% {opacity:1;background:none;}
+    }
+
+    /* Standard syntax */
+    @keyframes example {
+        0%	{opacity:0;background:none;}
+		94%	{opacity:0.8;background:none;}
+		96%	{opacity:0;background:#FFFFFF;}
+		98%	{opacity:1;background:none;}
+		99%	{opacity:0;background:#FFFFFF;}
+		100% {opacity:1;background:none;}
+    }
+    /*-------------------------intro----------------------*/
+	body{
+    	background:#326184;
+    }
+	.square{
+		position: relative;
+		top:113px;
+		left:580px;
+		background:rgb(52, 252, 235);
+		height:14px;
+		width:14px; 
+		transform: rotate(20deg);
+	}
+</style>
+
+<script>
+	var csstransforms = anime({
+		targets: '#CSStransforms .el',
+		translateX:{
+			value:-470,
+			duration: 1500,
+			delay: 800
+		},
+		scale: {
+			value: 2,
+			duration: 1600
+		},
+		rotate: {
+			value:45
+		},
+		easing: 'easeInOutQuart'
+	});
+</script>

@@ -20,11 +20,14 @@ const createStore  = () =>{
         actions:{
             //special action from nuxtjs (first dispatched on the server)(only server)
             nuxtServerInit(vuexContext,context){
+                console.log('nuxt server init . .')
+                /*
                 return new Promise((resolve,reject)=>{
                     setTimeout(()=>{
                         
-                    })
+                    },2000)
                 })
+                */
             },
             setPost(vuexContext , post){
                 vuexContext.commit('setData',post)
