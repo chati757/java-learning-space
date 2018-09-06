@@ -1,7 +1,7 @@
 {
   "name": "9_mvc_spa_vuejs",
   "version": "1.0.0",
-  "description": "testing integrate with express framework",
+  "description": "testing integrate with express framework and testing internal and external route",
   "author": "chati757",
   "private": true,
   "scripts": {
@@ -11,8 +11,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^1.0.0",
-    "express": "^4.15.3"
+    "body-parser": "^1.18.3",
+    "express": "^4.15.3",
+    "nuxt": "^1.0.0"
   },
   "devDependencies": {
     "cross-env": "^5.0.1",

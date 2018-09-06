@@ -16,11 +16,12 @@ module.exports = function(){
     }));
     app.use(bodyParser.json());//json avaliable
 
+    require('../app/routes/index.routes')(app); //call module.exports = function(app) in index.routes.js
+
     app.set('views','./app/views');
     app.engine('html', require('ejs').renderFile);
     app.set('view engine','html');
 
-    require('../app/routes/index.routes')(app); //call module.exports = function(app) in index.routes.js
     
     app.use(express.static('./public'));
 

@@ -1,6 +1,6 @@
 <template>
     <header>
-        <h3>header component</h3>
+        <h3>header layout component</h3>
     </header>
 </template>
 
