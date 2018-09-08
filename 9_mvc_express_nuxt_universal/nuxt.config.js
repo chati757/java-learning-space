@@ -40,7 +40,17 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios'
   ],
+
+  //do not have to import axios forever
+  //using like a $route in vue
+    //Ex.this.$router.push('/')
+    //Ex.context.app.$axios.$get('/somepath')
+  //axios config from @nuxtjs/axios
+  axios:{
+    baseUrl:process.env.BASE_URL || 'url not set in BASE_URL'
+  },
 
   /*
   ** Build configuration

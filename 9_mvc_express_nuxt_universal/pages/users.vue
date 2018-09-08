@@ -15,16 +15,24 @@
 
 <script>
 export default {
+    middleware:['checkreferrer'],
     data(){
         return {
-            userId:''
+            userId:'',
         }
+    },
+    created(){
+        console.log("page/users.vue/created ",this.$store.getters.getStatus)
+    },
+    mounted(){
+        console.log("page/users.vue/mounted ",this.$store.getters.getStatus)
     },
     methods:{
         onLoadUser(){
             //this.$router.push('/users/'+this.userId)
             //alert(this.userId)
-            this.$router.push({ path: '/users/test'+this.userId })
+            this.$router.push({ path: '/users/'+this.userId })
+            console.log(this.$store.getters.getStatus)
         }
     },
     //from nuxt

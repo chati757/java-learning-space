@@ -39,7 +39,21 @@
                 })
             }
         },
+        /*
+            //directive gatter
+            this.$store.state.someData
+            //normal gatter (someFunc from store getters)
+            this.$store.gatters.someFunc
+        */
         //other way of map type (mapgetters type)(require babel-preset-stage-2 or 3)(for use... spread operator)
+        //the reason of spread for using computed to do another thing more than mapGetters
+        //incase your sure for usring mapGetters only in computed or another vue feature(ex.created ,mounted ,etc..). you can using like this
+        /*
+            computed: mapGetters({
+                namegetters: 'namegetters in store',
+                namegetters2: 'namegetters2 in store'
+            })
+        */
         computed:{
             ...mapGetters({
                 registrations:'registrations',

@@ -15,6 +15,7 @@ basic java for nodejs and angularjs development
     Launcher
     Live Server
     ejs Snippets
+    vetur by Pine Wu
 
 ### install nodejs (download LTS version)
    

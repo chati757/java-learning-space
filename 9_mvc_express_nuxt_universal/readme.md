@@ -34,9 +34,9 @@ create-nuxt-app <projectname>
 assets : image and webpack build tools behind the scenes etc..
 components : component of template for vue (html , style , script in one file of component)
 layouts : mask of view
-middleware
+middleware : function between page
 pages : html page mangement and route automatically
 plugins : shared funtionality in your nuxt
-server :
+server : middleware and rendering server in the same server or middleware server only (can specify pre-path Ex.~/api/)
 static : static assets is something apart from assets folder or something should not be handled by webpack
 store : essential component for state management with vuex
