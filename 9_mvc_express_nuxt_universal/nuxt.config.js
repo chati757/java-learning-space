@@ -28,6 +28,8 @@ module.exports = {
   */
   css: [
     '~/assets/styles/main.css'
+    //for using scss
+    //'@/assets/css/main.scss'
   ],
 
   /*

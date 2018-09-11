@@ -1,5 +1,7 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+const express = require('express')
+const bodyParser = require('body-parser')
+const cookieSession = require('cookie-session')
+
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 8080
 
@@ -9,7 +11,13 @@ let config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')
 
 module.exports = async function(){
-    var app = express()
+    const app = express()
+    // use cookie
+    app.use(cookieSession({
+        name:'session',//named this is easy to change express-session in future
+        keys:['fox','kuugen','987asd94zc9as7d9']
+        //maxAge: 24 * 60 * 60 * 1000 // 24 hours //set in middleware instread (req.seesionOptions.maxAge = 60000 (1hour))
+    }))
 
     /*
     if(process.env.NODE_ENV === 'development') {

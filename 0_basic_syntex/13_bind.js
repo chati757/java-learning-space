@@ -16,8 +16,10 @@ const show = user.showFirstUser
 
 //resolve
 console.log("resolve 1")
+//using .this in showFirstUser:function()
 const show2 = user.showFirstUser.bind(user)
 show2()
+console.log("resolve 1")
 
 //resolve2 non-binding
 console.log("resolve 2")

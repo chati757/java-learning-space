@@ -15,10 +15,10 @@
       </div>
       <ul>
         <li><a href="/users">Users (a link)(new request)(*when error default-layout not running <b v-bind:class="css_color">{{layout_result}}</b>)</a></li>
-        <li><a href="/barbar">non-exist a link(follow extendRoutes path in nuxt.config.js) <b style="color:rgb(73, 158, 80);">(*under default layout)</b></a></li>
-        <li><atag href="/users">a tag vue-wrapper(*when error default-layout not running <b v-bind:class="css_color">{{layout_result}}</b>)</atag></li>
+        <li><a href="/barbar">non-exist (a link)(follow extendRoutes path in nuxt.config.js) <b style="color:rgb(73, 158, 80);">(*under default layout)</b></a></li>
+        <li><atag href="/users">(a tag vue-wrapper)(*when error default-layout not running <b v-bind:class="css_color">{{layout_result}}</b>)</atag></li>
         <li><nuxt-link to="/users">Users (nuxt-link)(seem a router-link)(prevent send new  request)(faster a link) <b style="color:rgb(73, 158, 80);">(*under default layout)</b></nuxt-link></li>
-        <li><nuxt-link to="/barbar">non-exist nuxt-route(follow extendRoutes path in nuxt.config.js) <b style="color:rgb(73, 158, 80);">(*under default layout)</b></nuxt-link></li>
+        <li><nuxt-link to="/barbar">non-exist (nuxt-link)(follow extendRoutes path in nuxt.config.js) <b style="color:rgb(73, 158, 80);">(*under default layout)</b></nuxt-link></li>
         *incase path collision between internal link and external link (express server) in [TAG A] it's will be select external first!
       </ul>
       <div class="topic">
@@ -64,64 +64,97 @@
             <br><button v-on:click="checkapikey">check from server</button><b>{{check_apikey}}</b>
           </p>
         </li>
-        <li>(express)(cookie) TOKEN</li>
-        <li>(express)(session)</li>
-        <li>(firebase)(localstore) TOKEN
-          <br><p>
-            *if you need localstorage please npm install --save vuex-persistedstate (for using localstorage)
+        <li>(express)(cookie)(client-side) and (express)(session)(server-side)
+          <p>
+            [Ex.quick login , auth(anti-hijacking) ,etc ]
+            <br><a href="/req/cookie">get cookie</a>
+            <br>check cookie in chrome : <b>chrome://settings/cookies/detail?site=localhost</b>
           </p>
         </li>
         <li>(firebase)(cookie) TOKEN</li>
       </ul>
       <div class="topic">
-        <b>4.DATABASE</b>
+        <b>4.REST</b>
         <p></p>
       </div>
       <div class="topic">
-        <b>4.1 DATABASE (server)(with axios)</b>
+        <b>4.1 REST (express server)(with axios)</b>
       </div>
       <ul>
-        <li>GET (list data)</li>
-        <li>POST (edit data)</li>
-        <li>PUT (update data)</li>
-        <li>DELETE (delete data)</li>
+        <li>
+          GET (list data) <button v-on:click="server_rest_get">GET (list)</button>
+          <p>
+            <textarea>{{rest_server_get_data}}</textarea>
+          </p>
+        </li>
+        <li>POST (add data) <button v-on:click="server_rest_post">POST (add testd)</button>
+          <p>
+            <textarea>{{rest_server_post_data}}</textarea>
+          </p>
+        </li>
+        <li>PUT (update data) <button v-on:click="server_rest_put">PUT (update c obj)</button>
+          <p>
+            <textarea>{{rest_server_put_data}}</textarea>
+          </p>
+        </li>
+        <li>DELETE (delete data) <button v-on:click="server_rest_delete">DELETE (delete c obj)</button>
+          <p>
+            <textarea>{{rest_server_delete_data}}</textarea>
+          </p>
+        </li>
       </ul>
       <div class="topic">
-        <b>4.2 DATABASE (firebase)(with axios)</b>
+        <b>4.2 REST (firebase)(with axios)</b>
         <br>*please check authentication (firebase)(cookie) first !
       </div>
       <ul>
-        <li>GET (list data)</li>
-        <li>POST (edit data)</li>
-        <li>PUT (update data)</li>
-        <li>DELETE (delete data)</li>
+        <li>GET (list data) <button v-on:click="firebase_rest_get">GET (list)</button>
+          <p>
+            <textarea>{{rest_firebase_get_data}}</textarea>
+          </p>
+        </li>
+        <li>POST (add data) <button v-on:click="firebase_rest_post">POST (add user:test , email:test@gmail.com)</button>
+          <p>
+            <textarea>{{rest_firebase_post_data}}</textarea>
+          </p>
+        </li>
+        <li>PUT (update data) <button v-on:click="firebase_rest_put">PUT (enter nameId string to edit user:test2)</button>
+          <p>
+            <textarea v-model="rest_firebase_put_data">{{rest_firebase_put_data}}</textarea>
+          </p>
+        </li>
+        <li>DELETE (delete data) <button v-on:click="firebase_rest_delete">DELETE (enter nameId to delete)</button>
+          <p>
+            <textarea v-model="rest_firebase_delete_data">{{rest_firebase_delete_data}}</textarea>
+          </p>
+        </li>
       </ul>
       <div class="topic">
-        <b>5.LAYOUT</b>
+        <b>5.SCSS (mint planet)</b>
+        <br>*before : using scss : npm install --save-dev node-sass sass-loader
+        <br>or using nuxt-sass-resources-loader : https://www.npmjs.com/package/nuxt-sass-resources-loader
+        <br>if you need to not exposing in your components
+        <br>incase for using : leng="scss" in style tag
+      </div>
+      <ul>
+      </ul>
+      <div class="topic">
+        <b>6.SEARCH LIST (input field autocomplete)</b>
       </div>
       <div class="topic">
-        <b>5.1 LAYOUT (responsive)</b>
-      </div>
-      <div class="topic">
-        <b>6.SCSS</b>
-      </div>
-      <div class="topic">
-        <b>7.SEARCH POST (input field autocomplete)</b>
-      </div>
-      <div class="topic">
-        <b>8.SEARCH IMAGE GALLERY (selector)</b>
+        <b>7.SEARCH IMAGE GALLERY (selector)</b>
       </div>
        <div class="topic">
-        <b>8.1 SEARCH IMAGE GALLERY (shuffle)</b>
+        <b>7.1 SEARCH IMAGE GALLERY (shuffle)</b>
       </div>
       <div class="topic">
-        <b>10.IMAGE SLIDE GALLERY</b>
+        <b>8.IMAGE SLIDE GALLERY</b>
       </div>
       <div class="topic">
-        <b>11.NAV SIDE</b>
+        <b>9.NAV SIDE</b>
       </div>
       <div class="topic">
-        <b>12.GRAPH</b>
+        <b>10.GRAPH</b>
       </div>
     </div>
   </section>
@@ -135,12 +168,20 @@ export default {
   data(){
     return{
       checked:true,
-      checkstate_false:"",
+      checkstate_false:"light",
       checkstate_true:"",
       layout_result:"external and hotlink protected",
       css_color:"",
       apikey_input_value:"apikey is empty : please check network conntection",
-      check_apikey:" no request"
+      check_apikey:" no request",
+      rest_server_get_data:null,
+      rest_server_post_data:null,
+      rest_server_put_data:null,
+      rest_server_delete_data:null,
+      rest_firebase_get_data:null,
+      rest_firebase_post_data:null,
+      rest_firebase_put_data:null,
+      rest_firebase_delete_data:null
     }
   },
   components: {
@@ -151,6 +192,7 @@ export default {
     console.log('/page/index.vue/created')
   },
   mounted(){
+    //console.log(window.location.hostname)
     console.log('/page/index.vue/mounted')
     console.log(this.$store.getters.getKey)
     this.checklayout()
@@ -198,17 +240,100 @@ export default {
       }).then(result=>{
         this.check_apikey=" "+result
       })
+    },
+    //express server
+    server_rest_get(){
+      this.$axios.$get("http://localhost:8080/req/obj")
+      .then(obj => {
+          console.log('/page/index/server_rest_get ',obj)
+          this.rest_server_get_data=obj
+      })
+      .catch(e => console.log(e))
+    },
+    server_rest_post(){
+      this.$axios.$post("http://localhost:8080/req/obj",{
+        data:'testd'
+      })
+      .then(obj => {
+          console.log('/page/index/server_rest_post ',obj)
+          this.rest_server_post_data=obj
+      })
+      .catch(e => console.log(e))
+    },
+    server_rest_put(){
+      console.log('server_rest_put_func')
+      this.$axios.$put("http://localhost:8080/req/obj/c",{payload:"CCCC"})
+      .then(obj => {
+          console.log('/page/index/server_rest_put ',obj)
+          this.rest_server_put_data=obj
+      })
+      .catch(e => console.log(e))
+    },
+    server_rest_delete(){
+      this.$axios.$delete("http://localhost:8080/req/obj/c")
+      .then(obj => {
+          console.log('/page/index/server_rest_delete ',obj)
+          this.rest_server_delete_data=obj
+      })
+      .catch(e => console.log(e))
+    },
+    //firebase
+    firebase_rest_get(){
+      this.$axios.$get("https://test-express-nuxt-universal.firebaseio.com/users.json")
+      .then(result => {
+          console.log('/page/index/firebase_rest_get')
+          this.rest_firebase_get_data=result
+      })
+      .catch(e => console.log(e))
+    },
+    firebase_rest_post(){
+      this.$axios.$post("https://test-express-nuxt-universal.firebaseio.com/users.json",{
+        user:'test',
+        email:'test@gmail.com'
+      })
+      .then(result => {
+          console.log('/page/index/firebase_rest_post')
+          this.rest_firebase_post_data=result
+      })
+      .catch(e => console.log(e))
+    },
+    firebase_rest_put(){
+      this.$axios.$put("https://test-express-nuxt-universal.firebaseio.com/users/"
+      +this.rest_firebase_put_data+".json",{
+        user:'test2',
+        email:'test@gmail.com'
+      })
+      .then(result => {
+          console.log('/page/index/firebase_rest_put')
+          console.log(result)
+          this.rest_firebase_put_data=JSON.stringify(result)
+      })
+      .catch(e => console.log(e))
+    },
+    firebase_rest_delete(){
+      this.$axios.$delete("https://test-express-nuxt-universal.firebaseio.com/users/"
+      +this.rest_firebase_delete_data+".json")
+      .then(result => {
+          console.log('/page/index/firebase_rest_delete')
+          console.log(result)
+          this.rest_firebase_delete_data=JSON.stringify(result)
+      })
+      .catch(e => console.log(e))
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+
 .container {
   font-family: consolas;
   text-align: center;
   border-style: solid;
   padding:40px;
+}
+textarea{
+  height:100px;
 }
 .blue{
   color:blue;
@@ -217,7 +342,7 @@ export default {
   color:red;
 }
 .green{
-  color:rgb(73, 158, 80)
+  color:rgb(73, 158, 80);
 }
 
 li{
