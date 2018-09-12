@@ -84,22 +84,22 @@
         <li>
           GET (list data) <button v-on:click="server_rest_get">GET (list)</button>
           <p>
-            <textarea>{{rest_server_get_data}}</textarea>
+            <textarea v-text="rest_server_get_data"></textarea>
           </p>
         </li>
         <li>POST (add data) <button v-on:click="server_rest_post">POST (add testd)</button>
           <p>
-            <textarea>{{rest_server_post_data}}</textarea>
+            <textarea v-text="rest_server_post_data"></textarea>
           </p>
         </li>
         <li>PUT (update data) <button v-on:click="server_rest_put">PUT (update c obj)</button>
           <p>
-            <textarea>{{rest_server_put_data}}</textarea>
+            <textarea v-text="rest_server_put_data"></textarea>
           </p>
         </li>
         <li>DELETE (delete data) <button v-on:click="server_rest_delete">DELETE (delete c obj)</button>
           <p>
-            <textarea>{{rest_server_delete_data}}</textarea>
+            <textarea v-text="rest_server_delete_data"></textarea>
           </p>
         </li>
       </ul>
@@ -110,22 +110,22 @@
       <ul>
         <li>GET (list data) <button v-on:click="firebase_rest_get">GET (list)</button>
           <p>
-            <textarea>{{rest_firebase_get_data}}</textarea>
+            <textarea v-text="rest_firebase_get_data"></textarea>
           </p>
         </li>
         <li>POST (add data) <button v-on:click="firebase_rest_post">POST (add user:test , email:test@gmail.com)</button>
           <p>
-            <textarea>{{rest_firebase_post_data}}</textarea>
+            <textarea v-text="rest_firebase_post_data"></textarea>
           </p>
         </li>
         <li>PUT (update data) <button v-on:click="firebase_rest_put">PUT (enter nameId string to edit user:test2)</button>
           <p>
-            <textarea v-model="rest_firebase_put_data">{{rest_firebase_put_data}}</textarea>
+            <textarea v-model="rest_firebase_put_data" v-text="rest_firebase_put_data"></textarea>
           </p>
         </li>
         <li>DELETE (delete data) <button v-on:click="firebase_rest_delete">DELETE (enter nameId to delete)</button>
           <p>
-            <textarea v-model="rest_firebase_delete_data">{{rest_firebase_delete_data}}</textarea>
+            <textarea v-model="rest_firebase_delete_data" v-text="rest_firebase_delete_data"></textarea>
           </p>
         </li>
       </ul>
@@ -141,8 +141,19 @@
       <div class="topic">
         <b>6.SEARCH LIST (input field autocomplete)</b>
       </div>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=G34_yNV8FMY">bootstrap outer search</a>
+          <br><searchboxouter></searchboxouter>
+        </li>
+        <li><a href="https://www.youtube.com/watch?v=cuo9T6rc-VE">bootstrap inner search</a>
+          <br><nuxt-link to="innersearchboxpage">goto search inner</nuxt-link>
+        </li>
+        <li><a href="https://paliari.github.io/v-autocomplete/">v-autocomplete</a>
+        </li>
+      </ul>
       <div class="topic">
         <b>7.SEARCH IMAGE GALLERY (selector)</b>
+        <br>ref : https://codepen.io/AndrewThian/pen/QdeOVa
       </div>
        <div class="topic">
         <b>7.1 SEARCH IMAGE GALLERY (shuffle)</b>
@@ -163,6 +174,7 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import atag from '~/components/atag.vue'
+import searchboxouter from '~/components/outersearchbox.vue'
 
 export default {
   data(){
@@ -181,12 +193,13 @@ export default {
       rest_firebase_get_data:null,
       rest_firebase_post_data:null,
       rest_firebase_put_data:null,
-      rest_firebase_delete_data:null
+      rest_firebase_delete_data:null,
     }
   },
   components: {
     Logo,
-    atag
+    atag,
+    searchboxouter
   },
   created(){
     console.log('/page/index.vue/created')
