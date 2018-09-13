@@ -149,23 +149,31 @@
           <br><nuxt-link to="innersearchboxpage">goto search inner</nuxt-link>
         </li>
         <li><a href="https://paliari.github.io/v-autocomplete/">v-autocomplete</a>
+          <br>npm install --save v-autocomplete
+          <br><nuxt-link to="vautocomplete">goto v-autocomplete</nuxt-link>
         </li>
       </ul>
       <div class="topic">
         <b>7.SEARCH IMAGE GALLERY (selector)</b>
-        <br>ref : https://codepen.io/AndrewThian/pen/QdeOVa
+        <br>ref 1: https://codepen.io/AndrewThian/pen/QdeOVa
       </div>
        <div class="topic">
         <b>7.1 SEARCH IMAGE GALLERY (shuffle)</b>
+        <br>ref 1: https://vestride.github.io/Shuffle/
+        <br>ref 1: http://codepen.io/pen?template=qrjOpX
       </div>
       <div class="topic">
         <b>8.IMAGE SLIDE GALLERY</b>
+        <br>ref 1: https://ssense.github.io/vue-carousel/
+        <br>ref 2: https://warpcgd.github.io/vue-concise-slider/demo/
+        <br>ref 2: https://vuejsexamples.com/a-simple-sliding-component-has-easy-configuration-supported-self-adaption/
       </div>
       <div class="topic">
         <b>9.NAV SIDE</b>
       </div>
       <div class="topic">
         <b>10.GRAPH</b>
+        <br>ref 1: https://vuejsexamples.com/synchronized-charts-with-vue-js/
       </div>
     </div>
   </section>
@@ -338,33 +346,32 @@ export default {
 </script>
 
 <style lang="scss">
+  .container {
+    font-family: consolas;
+    text-align: center;
+    border-style: solid;
+    padding:40px;
+  }
+  textarea{
+    height:100px;
+  }
+  .blue{
+    color:blue;
+  }
+  .red{
+    color:red;
+  }
+  .green{
+    color:rgb(73, 158, 80);
+  }
 
-.container {
-  font-family: consolas;
-  text-align: center;
-  border-style: solid;
-  padding:40px;
-}
-textarea{
-  height:100px;
-}
-.blue{
-  color:blue;
-}
-.red{
-  color:red;
-}
-.green{
-  color:rgb(73, 158, 80);
-}
-
-li{
-  text-align: left;
-}
-.topic{
-  text-align: left;
-}
-.light{
-  font-weight: 100;
-}
+  li{
+    text-align: left;
+  }
+  .topic{
+    text-align: left;
+  }
+  .light{
+    font-weight: 100;
+  }
 </style>
