@@ -37,7 +37,10 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/vue_autocomplete.js'
+    {src:'~/plugins/component_register.js',ssr:true},
+    {src:'~/plugins/vue_autocomplete.js',ssr:true},
+    {src:'~/plugins/shuffle.js',ssr:true},
+    {src:'~/plugins/vue_carousel.js',ssr:false}
   ],
 
   /*

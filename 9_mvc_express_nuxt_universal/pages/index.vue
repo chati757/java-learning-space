@@ -149,32 +149,54 @@
           <br><nuxt-link to="innersearchboxpage">goto search inner</nuxt-link>
         </li>
         <li><a href="https://paliari.github.io/v-autocomplete/">v-autocomplete</a>
-          <br>npm install --save v-autocomplete
+          <br>npm install --save v-autocomplete > set plugin > set nuxt.config.js
           <br><nuxt-link to="vautocomplete">goto v-autocomplete</nuxt-link>
         </li>
       </ul>
       <div class="topic">
         <b>7.SEARCH IMAGE GALLERY (selector)</b>
-        <br>ref 1: https://codepen.io/AndrewThian/pen/QdeOVa
       </div>
-       <div class="topic">
+      <ul>
+        <li>
+          ref 1: https://codepen.io/AndrewThian/pen/QdeOVa
+          <br><nuxt-link to="searchimageselector">go to search image selector</nuxt-link>
+        </li>
+      </ul>
+      <div class="topic">
         <b>7.1 SEARCH IMAGE GALLERY (shuffle)</b>
-        <br>ref 1: https://vestride.github.io/Shuffle/
-        <br>ref 1: http://codepen.io/pen?template=qrjOpX
       </div>
+      <ul>
+        <li>
+          ref 1: https://vestride.github.io/Shuffle/
+          <br>ref 1: http://codepen.io/pen?template=qrjOpX
+          <br> npm install shufflejs > set plugin > set nuxt.config.js
+          <br><nuxt-link to="searchimageshuffle">go to search image shuffle</nuxt-link>
+        </li>
+      </ul>
       <div class="topic">
         <b>8.IMAGE SLIDE GALLERY</b>
-        <br>ref 1: https://ssense.github.io/vue-carousel/
-        <br>ref 2: https://warpcgd.github.io/vue-concise-slider/demo/
-        <br>ref 2: https://vuejsexamples.com/a-simple-sliding-component-has-easy-configuration-supported-self-adaption/
       </div>
+      <ul>
+        <li>
+          ref 1: https://ssense.github.io/vue-carousel/
+          <vuecarousel></vuecarousel>
+        </li>
+        <li>
+          ref 2: https://warpcgd.github.io/vue-concise-slider/demo/
+          <br>ref 2: https://vuejsexamples.com/a-simple-sliding-component-has-easy-configuration-supported-self-adaption/
+        </li>
+      </ul>
       <div class="topic">
         <b>9.NAV SIDE</b>
       </div>
       <div class="topic">
         <b>10.GRAPH</b>
-        <br>ref 1: https://vuejsexamples.com/synchronized-charts-with-vue-js/
       </div>
+      <ul>
+        <li>
+          ref 1: https://vuejsexamples.com/synchronized-charts-with-vue-js/
+        </li>
+      </ul>
     </div>
   </section>
 </template>
@@ -182,7 +204,6 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import atag from '~/components/atag.vue'
-import searchboxouter from '~/components/outersearchbox.vue'
 
 export default {
   data(){
@@ -206,8 +227,7 @@ export default {
   },
   components: {
     Logo,
-    atag,
-    searchboxouter
+    atag
   },
   created(){
     console.log('/page/index.vue/created')
@@ -236,22 +256,22 @@ export default {
     },
     checklayout(){
       this.$store.commit({
-          type:'setAntihotlink',
-          status:this.checked
+        type:'setAntihotlink',
+        status:this.checked
       })
       if(this.checked){
         this.$store.commit({
-            type: 'setReferrer',
-            ref: 'index'
+          type: 'setReferrer',
+          ref: 'index'
         })
         
-        //check store state
+      //check store state
       }else{
         this.layout_result="out of default layout"
         this.css_color="red"
         this.$store.commit({
-            type: 'setReferrer',
-            ref: null
+          type: 'setReferrer',
+          ref: null
         })
       }
     },
@@ -266,8 +286,8 @@ export default {
     server_rest_get(){
       this.$axios.$get("http://localhost:8080/req/obj")
       .then(obj => {
-          console.log('/page/index/server_rest_get ',obj)
-          this.rest_server_get_data=obj
+        console.log('/page/index/server_rest_get ',obj)
+        this.rest_server_get_data=obj
       })
       .catch(e => console.log(e))
     },
@@ -276,8 +296,8 @@ export default {
         data:'testd'
       })
       .then(obj => {
-          console.log('/page/index/server_rest_post ',obj)
-          this.rest_server_post_data=obj
+        console.log('/page/index/server_rest_post ',obj)
+        this.rest_server_post_data=obj
       })
       .catch(e => console.log(e))
     },
@@ -285,16 +305,16 @@ export default {
       console.log('server_rest_put_func')
       this.$axios.$put("http://localhost:8080/req/obj/c",{payload:"CCCC"})
       .then(obj => {
-          console.log('/page/index/server_rest_put ',obj)
-          this.rest_server_put_data=obj
+        console.log('/page/index/server_rest_put ',obj)
+        this.rest_server_put_data=obj
       })
       .catch(e => console.log(e))
     },
     server_rest_delete(){
       this.$axios.$delete("http://localhost:8080/req/obj/c")
       .then(obj => {
-          console.log('/page/index/server_rest_delete ',obj)
-          this.rest_server_delete_data=obj
+        console.log('/page/index/server_rest_delete ',obj)
+        this.rest_server_delete_data=obj
       })
       .catch(e => console.log(e))
     },
@@ -302,8 +322,8 @@ export default {
     firebase_rest_get(){
       this.$axios.$get("https://test-express-nuxt-universal.firebaseio.com/users.json")
       .then(result => {
-          console.log('/page/index/firebase_rest_get')
-          this.rest_firebase_get_data=result
+        console.log('/page/index/firebase_rest_get')
+        this.rest_firebase_get_data=result
       })
       .catch(e => console.log(e))
     },
@@ -313,8 +333,8 @@ export default {
         email:'test@gmail.com'
       })
       .then(result => {
-          console.log('/page/index/firebase_rest_post')
-          this.rest_firebase_post_data=result
+        console.log('/page/index/firebase_rest_post')
+        this.rest_firebase_post_data=result
       })
       .catch(e => console.log(e))
     },
@@ -325,9 +345,9 @@ export default {
         email:'test@gmail.com'
       })
       .then(result => {
-          console.log('/page/index/firebase_rest_put')
-          console.log(result)
-          this.rest_firebase_put_data=JSON.stringify(result)
+        console.log('/page/index/firebase_rest_put')
+        console.log(result)
+        this.rest_firebase_put_data=JSON.stringify(result)
       })
       .catch(e => console.log(e))
     },
@@ -335,9 +355,9 @@ export default {
       this.$axios.$delete("https://test-express-nuxt-universal.firebaseio.com/users/"
       +this.rest_firebase_delete_data+".json")
       .then(result => {
-          console.log('/page/index/firebase_rest_delete')
-          console.log(result)
-          this.rest_firebase_delete_data=JSON.stringify(result)
+        console.log('/page/index/firebase_rest_delete')
+        console.log(result)
+        this.rest_firebase_delete_data=JSON.stringify(result)
       })
       .catch(e => console.log(e))
     }
