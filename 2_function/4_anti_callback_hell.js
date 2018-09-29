@@ -28,9 +28,11 @@ ap
 bad "then"
 //problem
 function do() {
-  return doA().then(function(a) {
+  return doA()
+  .then(function(a) {
     return doB(a);
-  }).then(function(b) {
+  })
+  .then(function(b) {
     return doC(b);
   });
 }
@@ -121,21 +123,21 @@ box
     .catch(e=>console.log('box:incatch'))
     .then(e=>console.log('box:final'))
 
-const box2 = Promise.reject('a')//goto incatch and final
+const box2 = Promise.reject('a')//goto incatch and final (error this lavel)
 box2
     .then(e=>{
         console.log('box2:',e)
-        throw 'error'
+        throw 'error'//go to in catch
     })//skip all then before catch
     .catch(e=>console.log("box2:incatch"))
     .then(e=>console.log('box2:final'))
 
-const box3 = Promise.reject('a')//goto in handle error and final
+const box3 = Promise.reject('a')//goto in handle error and final (error this lavel)(skip catch)
 box3
     .then(e=>{
         console.log('box3:',e)
-        throw 'error'
-    },e=>{//handle error in the seem level only
+        throw 'error'//go to in catch
+    },e=>{//handle error in the seem level only (before catch)
         console.log('box3:in handle error')
     })
     .catch(e=>console.log('box3:incatch'))
@@ -145,7 +147,7 @@ const box4 = Promise.resolve('a')//goto incatch because error same lavel not got
 box4
     .then(e=>{
         console.log('box4:',e)
-        throw 'error'
+        throw 'error'//go to in catch
     },e=>{//handle error in the seem level only
         console.log('box4:in handle error')
     })

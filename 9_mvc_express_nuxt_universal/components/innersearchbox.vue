@@ -43,6 +43,7 @@
             left:10px;
             font-size: 25px;
             color:#d0d0d0;
+            //placeholder text cannot click or drag with pointer-events: none;
             pointer-events: none;
         }
         .popover{

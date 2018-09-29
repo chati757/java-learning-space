@@ -40,7 +40,9 @@ module.exports = {
     {src:'~/plugins/component_register.js',ssr:true},
     {src:'~/plugins/vue_autocomplete.js',ssr:true},
     {src:'~/plugins/shuffle.js',ssr:true},
-    {src:'~/plugins/vue_carousel.js',ssr:false}
+    {src:'~/plugins/chart.js',ssr:false},
+    {src:'~/plugins/vue_carousel.js',ssr:false},
+    {src:'~/plugins/vue_conciseslider.js',ssr:false},
   ],
 
   /*

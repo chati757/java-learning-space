@@ -183,18 +183,27 @@
         </li>
         <li>
           ref 2: https://warpcgd.github.io/vue-concise-slider/demo/
+          <br>ref 2: https://warpcgd.github.io/vue-concise-slider/#/?id=quick%20start
           <br>ref 2: https://vuejsexamples.com/a-simple-sliding-component-has-easy-configuration-supported-self-adaption/
+          <vueconciseslider></vueconciseslider>
         </li>
       </ul>
       <div class="topic">
         <b>9.NAV SIDE</b>
+        <br>ref 1: https://www.w3schools.com/howto/howto_js_sidenav.asp#
       </div>
+      <ul>
+        <li><navsideoverlay></navsideoverlay>
+        </li>
+      </ul>
       <div class="topic">
         <b>10.GRAPH</b>
       </div>
       <ul>
         <li>
-          ref 1: https://vuejsexamples.com/synchronized-charts-with-vue-js/
+          ref 1: http://www.chartjs.org/docs/latest/
+          <br>install chart.js --save
+          <chartjs></chartjs>
         </li>
       </ul>
     </div>
