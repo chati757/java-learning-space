@@ -1,9 +1,7 @@
 <template>
     <div>
-        <button v-on:click="buildChart()">myChart</button>
-        <button v-on:click="buildChart2()">myChart2</button>
-        <button v-on:click="changecolor()">changecolor to white</button>
-        <button v-on:click="changecolor2()">changecolor to black</button>
+        <button v-on:click="loadChart()">myChart</button>
+        <button v-on:click="loadChart2()">myChart2</button>
         <div class="chart-container" style="position: relative; height:60vh; width:60vw ;border:1px solid #000000;">
             <canvas id="myChart"></canvas>
             <canvas id="myChart2"></canvas>
@@ -30,9 +28,18 @@ export default {
     mounted(){
     },
     methods:{
+        set_default_fontcolor(color){
+            return new Promise((resolve,reject)=>{
+                resolve(
+                    this.$chartjs.defaults.global.defaultFontColor = color
+                )
+                reject(
+                    'error'
+                )
+            })
+        },
         buildChart(){
             const ctx = document.getElementById("myChart").getContext('2d')
-            //this.$chartjs.defaults.global.defaultFontColor = 'black';
             const myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
@@ -72,7 +79,6 @@ export default {
         },
         buildChart2(){
             const ctx = document.getElementById("myChart2").getContext('2d')
-            //this.$chartjs.defaults.global.defaultFontColor = 'white';
             const myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -125,11 +131,15 @@ export default {
                 }
             })
         },
-        changecolor(){
-            this.$chartjs.defaults.global.defaultFontColor = 'white';
+        loadChart(){
+            this.set_default_fontcolor("black").then(
+                this.buildChart()
+            )
         },
-        changecolor2(){
-            this.$chartjs.defaults.global.defaultFontColor = 'black';
+        loadChart2(){
+            this.set_default_fontcolor("white").then(
+                this.buildChart2()
+            )
         }
     }
 }
