@@ -1,0 +1,38 @@
+/*
+If your styles are written in the CSS file, 
+you need to get the computed style. 
+To do so, you can use getComputedStyle.
+*/
+
+<html>
+    <style>
+        .element{
+            background-color: red;
+        }
+    </style>
+    <body>
+        <div class="element"> This is my element </div>
+        <div class="element2" style="background:red;">test</div>
+    </body>
+    <script>
+        /*
+        getComputedStyle(element,pseudo_elements)
+        getComputedStyle(element, '::before')
+        */
+        const element = document.querySelector('.element');
+        const style = getComputedStyle(element);
+        /*
+        incase
+        Inline styles are styles that are present in the HTML in the style attribute.
+        */
+        const element2 = document.getElementsByClassName('element2')[0].style;
+        /*
+        //example for set property
+        document.documentElement.style.setProperty(name, value)
+        //or
+        element2.style.<name>=<value>
+        */
+    
+    </script>
+</html>
+
