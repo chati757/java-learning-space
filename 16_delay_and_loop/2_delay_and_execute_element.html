@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Checkbox: <input type="checkbox" id="myCheck">
+
+<button onclick="check()">Check Checkbox</button>
+<button onclick="uncheck()">Uncheck Checkbox</button>
+
+<script>
+function uncheck(){
+	console.log('click uncheck');
+}
+
+const timer2 = function(ms){
+	return function(x) {
+        //x จะถูกใช้ หาก resolve ของ function ก่อนหน้ามีการใส่ค่า pass ใว้ใน resolve Ex. resolve('test') แบบนี้ x จะเท่ากับ 'test'
+        //อย่าลืม () ของ resolve() เพราะมันจะไม่เรียก reutrn function() ของ set(el)
+        return new Promise(resolve => setTimeout(() => resolve(), ms));
+    };
+}
+
+function set(el){
+    //ทดสอบใช้ promise แบบย่อ
+	return function(){
+        try{
+        	console.log('checked')
+            el.checked = true;
+        }
+        catch{
+            return Promise.reject();
+        }
+        return Promise.resolve();
+    }
+}
+
+function click(el){
+    //ทดสอบใช้ promise แบบเต็ม
+    return new Promise((resolve,reject)=>{
+    	try{
+        	el.click();
+            resolve();
+        }
+        catch{
+        	reject();
+        }
+    })
+}
+
+function some_el()
+{
+	console.log('run el')
+}
+
+
+click(document.getElementsByTagName('button')[1])
+.then(timer2(3000))
+.then(set(document.getElementById('myCheck')))
+
+</script>
+
+</body>
+</html>
