@@ -17,7 +17,7 @@ const resolve_video = {
     'tags' : ['a','b','c'],
     showTags() {
         this.tags.forEach(function(tag){
-            //หลังจากแก้โดน pass agrs เป็น this ก็สามารถเรียก this.title ได้ปกติ
+            //หลังจากแก้โดย pass agrs เป็น this ก็สามารถเรียก this.title ได้ปกติ
             console.log(this.title)//now it's ok
             console.log(tag)//it's show all array tags
         },this)
